@@ -1,3 +1,4 @@
+
 # Generates headings (eg: ----- Heading -----)
 def statement_generator(statement, decoration):
     print(f"\n{decoration * 5} {statement} {decoration * 5}")
@@ -52,10 +53,37 @@ def num_check(question):
             print(error)
 
 
-# main routine goes here
+def factor(var_to_factor):
+    pass
+
+
 while True:
     to_factor = num_check("To factor: ")
     print("You choose to factor", to_factor)
 
     if to_factor == "xxx":
         break
+    elif to_factor != 1:
+        all_factors = factor(to_factor)
+
+    else:
+        all_factors = ""
+        comment = "One is UNITY! It only has one factor, itself :D"
+
+    if len(all_factors) == 2:
+        comment = f"{to_factor} is a prime number!"
+
+    elif len(all_factors) % 2 == 1:
+        comment = f"{to_factor} is a perfect square!"
+
+    if to_factor > 1:
+        heading = f"Factors of {to_factor}"
+    else:
+        heading = "One is special..."
+
+    print()
+    statement_generator(heading, "-")
+    print(all_factors)
+    print(comment)
+
+print("Thank you for using the factors calculator :)")
